@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* Paragraphs */
+p {
+    color: aqua;
+    background-color: darkgrey;
+    font-size: large;
+    text-align: center;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+/* Lists */
+ul {
+    list-style-type: square;
+}
+
+ol {
+    list-style-type: upper-roman;
+}
