@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="en">
+<!--    // CODING THIS IN 3 FILES was breaking the old site code so
+        I consolidated the styling and script into this file.   // -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+      font-family: Verdana, sans-serif;
+      margin: 0;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    .row > .column {
+      padding: 0 8px;
+    }
+    
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    .column {
+        float: left;
+      width: 25%;
+    }
+    
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: black;
+    }
+    
+    /* Modal Content */
+    .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      max-width: 1200px;
+    }
+    
+    /* The Close Button */
+    .close {
+      color: white;
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 35px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #999;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    .mySlides {
+      display: none;
+    }
+    
+    .cursor {
+      cursor: pointer;
+    }
+    
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+    
+    img {
+      margin-bottom: -4px;
+    }
+    
+    .caption-container {
+      text-align: center;
+      background-color: black;
+      padding: 2px 16px;
+      color: white;
+    }
+    
+    .demo {
+      opacity: 0.6;
+    }
+    
+    .active,
+    .demo:hover {
+      opacity: 1;
+    }
+    
+    img.hover-shadow {
+      transition: 0.3s;
+    }
+    
+    .hover-shadow:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+
+/*------------ORIGINAL SITE CSS---------------------------------
+    GENERIC STYLES
+---------------------------------------------------------------*/
+html {
+    font-family: sans-serif;
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    font-size: 14px;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+footer,
+nav {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    line-height: 50px;
+    font-weight: 900;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #e91c1c;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+h1::after { /* This is the underline */
+    display: block;
+    content: " ";
+    height: 2px;
+    width: 150px;
+    background: #e91c1c;
+    margin: 5px auto 40px;
+    box-shadow: 5px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    line-height: 50px;
+    color: #e91c1c;
+}
+
+h3 {
+    line-height: 30px;
+    padding-bottom: 20px;
+}
+
+h4 {
+    padding-top: 25px;
+    line-height: 40px;
+    padding-bottom: 0px;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+p { /* I changed this from 300/30/15 for my image sizing */
+    font-weight: 300;
+    line-height: 20px;
+    padding-bottom: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.heading-padding {
+    padding-bottom: 40px;
+}
+
+section {
+    padding-top: 50px;
+    margin-top: 50px;
+}
+
+.navbar {
+    height: 105px;
+    max-height: 340px;
+    display: inline-block;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.clearfix::after, /* :after is now ::after with a double colon */
+.container::after,
+.navbar::after {
+    clear: both;
+    display: table;
+    content: " ";
+}
+
+.wrap {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    /* This ensures that the images cannot
+    render outside of their container
+    without forcing any scrollbars */
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.menu-container {
+    max-height: 340px;
+    margin: 0% auto;
+    content: " ";
+    /* top: 0;
+    left: 0; */
+    /* position: absolute; */ /* to the top edge of the screen */
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+}
+
+/*---------------------------------------------------------------
+    HOME SECTION STYLES
+---------------------------------------------------------------*/
+#home {
+    background: url(../images/thumb/zBGpaint.jpg) no-repeat 50% 50%;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    display: block;
+    height: auto;
+    padding-top: 350px; /* This is a spacer before the Main title Logo */
+    padding-bottom: 500px; /* This is a spacer after the Main title Logo */
+    color: #fff;
+}
+
+.head-main {
+    text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.9);
+    font-variant: small-caps;
+    color: #fff;
+    letter-spacing: 5pt;
+    word-spacing: 21pt;
+    font-size: 4.5em;
+    text-align: left;
+    font-family: impact, sans-serif;
+    line-height: 2;
+    font-weight: 900;
+    border: 5px double #fff;
+    padding: 10px;
+}
+
+.head-sub-main {
+    font-size: 23px;
+    font-weight: 500;
+    padding: 50px 20px 10px 20px;
+    text-transform: uppercase;
+}
+
+.head-last {
+    font-size: 18px;
+    font-weight: 900;
+    padding: 5px 20px 20px 20px;
+    border: 1px dotted #fff;
+    padding: 5px;
+}
+
+/*---------------------------------------------------------------
+    CONTACT STYLES
+---------------------------------------------------------------*/
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0px auto;
+    background-color: rgba(100, 65, 0, 0.3);
+    box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+#contact {
+    background-color: #f5f3f3;
+}
+
+.reservation {
+    width: 60%;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0px auto;
+    background-color: rgba(100, 65, 0, 0.3);
+    box-shadow: -1px -1px 1px 0 rgba(0, 0, 0, 1), 1px 2px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.reservation h2 {
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+    color: #13161b;
+    font-weight: 500;
+    font-size: 1.3em;
+    letter-spacing: 0pt;
+    word-spacing: 0pt;
+}
+
+.reservation h2 span {
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+    color: #13161b;
+    font-weight: 900;
+    font-size: 1.5em;
+    font-variant: small-caps;
+    letter-spacing: .4pt;
+    word-spacing: .3pt;
+}
+
+.reservation p {
+    color: #13161b;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.reservation form {
+    font-size: 15px;
+    outline: none;
+    font-weight: 600;
+    color: #8d8e8f;
+    padding: 12px 12px;
+    width: 70%;
+    border: 1px solid #808080;
+    margin: 2% auto;
+    border-radius: 7px;
+    background: rgb(227, 222, 222);
+    box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.3);
+    font-family: 'Raleway', sans-serif;
+}
+
+.reservation input[type="text"] {
+    font-size: 15px;
+    outline: none;
+    font-weight: 600;
+    color: #8d8e8f;
+    padding: 2% 1% 2% 7%;
+    width: 80%;
+    border-top: 1px solid #090b0d;
+    border-right: 2px solid #424549;
+    border-bottom: 2px solid #424549;
+    border-left: 1px solid #090b0d;
+    margin: 10px 1em;
+    border-radius: 7px;
+    background: #13161b;
+    box-shadow: inset 0px 3px 0px 0px rgba(5, 5, 5, 0.15);
+    font-family: 'Raleway', sans-serif;
+}
+
+.reservation input[type="text"]:hover {
+    box-shadow: 0 0 18px rgba(100, 65, 0, .8);
+}
+
+.form-spacer {
+    padding: 30px 39px;
+}
+
+.terms {
+    margin: 30px 1px 0 0;
+    margin-top: 13%;
+    padding-left: 52px;
+    font-size: 14px;
+    line-height: 5px;
+    color: #000;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    position: relative;
+    display: inline;
+    float: right;
+}
+
+.terms:hover{
+    color: orange;
+    text-decoration: underline;
+}
+
+.submit input[type="submit"]{
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: none;
+    font-weight: 900;
+    outline: none;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    margin: 0px 3%;
+    padding: 7px 0px;
+    width: 25%;
+    font-size: 18px;
+    transition: border-color 0.3s color 0.3s background-color 0.3s;
+    border-radius: 7px;
+    background-color: #797a7b;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.submit input[type="submit"]:hover{
+    color: #000;
+    background-color: #8d8e8f;
+    box-shadow: inset 1px 2px 15px 0 rgba(0, 0, 0, 0.5);
+}
+
+/*---------------------------------------------------------------
+    FOOTER STYLES
+---------------------------------------------------------------*/
+#footer {
+    background-color: rgba(100, 65, 0, .3);
+    color: #000;
+    text-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 1);
+    padding: 20px 50px 20px 50px;
+    text-align: right;
+}
+
+/*---------------------------------------------------------------
+    @MEDIA QUERIES
+---------------------------------------------------------------*/
+@media all and (max-width: 640px) and (min-width: 381px) {
+    .head-main {
+        font-size: 28px;
+    }
+}
+
+@media all and (max-width: 381px) and (min-width: 200px) {
+    .head-main {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/*---------------------------------------------------------------
+    MENU SECTION ANIMATION
+---------------------------------------------------------------*/
+.menu {
+    color:  #f00;
+    font: bold 12px/18px sans-serif;
+    text-align: center;
+    display: inline;
+    margin: 0% auto;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.menu li {
+    color: #000;
+    background-color: rgba(255, 255, 255, 1);
+    display: inline-block;
+    margin: 0% auto;
+    position: relative;
+    padding: 15px 4%;
+    border: 1px solid #9d9fa2;
+    box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    /* background-color: #052136; */
+    cursor: pointer;
+    transition-property: background;
+    transition-duration: .4s;
+    transition-delay: 0s;
+    transition-timing-function: ease-in-out;
+}
+
+.menu li:hover {
+    color: #f00;
+    background-color: rgba(100, 65, 0, 0.3);
+}
+
+/*---------------------------------------------------------------
+    GALLERY SECTION ANIMATION
+---------------------------------------------------------------*/
+.photo {
+    position: relative;
+    line-height: 0;
+    margin-bottom: 2em;
+    overflow: hidden;
+    border-radius: 8px;
+    padding: 1px;
+    border: 1px solid #021a40;
+    background-color: #ff0;
+    box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.7);
+}
+
+.photo-container {
+    text-align: center;
+    margin: 15px auto;
+    width: 169px; /* to fit my image dimensions (so not 300px) */
+    height: 169px;
+}
+
+.photo-container img {
+    max-width: 100%;
+    width: 169px; /* to fit my image dimensions (so not 300px) */
+    height: 169px;
+}
+
+.photo-overlay {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center; /* For centering text inside .photo-overlay */
+    align-items: center;
+    background:rgba(0, 0, 0, 0.5);
+}
+
+.white-head {
+    color: #c9bdaa;
+    margin-top: 5%;
+}
+
+/*---------------------------------------------------------------
+    PHOTO OVERLAY TRANSITIONS
+---------------------------------------------------------------*/
+.photo-overlay {
+    opacity: 0;
+    transition: opacity .5s;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.photo-overlay:hover {
+    opacity: 1;
+}
+
+.photo img {
+    transition: transform .5s;
+    transform-origin: 50% 50%;
+}
+
+.photo:hover img {
+    transform: scale(1.1);
+}
+    </style>
+<body>
+    <!-- Nav -->
+    <div class="wrap">
+        <div class="menu-container">
+            <ul class="menu">
+                <a href="#home"><li>HOME</li></a>
+                <a href="#gallery"><li>GALLERY</li></a>
+                <a href="#contact"><li>CONTACT</li></a>
+            </ul>
+        </div>
+    </div>
+    <!-- End Nav -->
+    <!-- HOME -->
+    <div id="home">
+        <div class="container">
+            <div class="text-center">
+                <span class="head-main">Meet The Pupperz!</span>
+            </div>
+        </div>
+    </div>
+    <!-- End HOME -->
+
+    <!-- LIGHTBOX -->
+    <h2 style="text-align:center">Lightbox</h2>
+    <div class="row">
+        <div class="column">
+            <!-- Drogo 1 -->
+            <img src="./images/thumb/thumbnail_d1.jpg" style="width:169px" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+            <!-- Drogo 2 -->
+            <img src="./images/thumb/thumbnail_d2.jpg" style="width:169px" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+            <!-- Khaleesi 1 -->
+            <img src="./images/thumb/thumbnail_k1.jpg" style="width:169px" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+            <!-- Khaleesi 2 -->
+            <img src="./images/thumb/thumbnail_k4.jpg" style="width:169px" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <div class="mySlides">
+                <div class="numbertext">1 / 4</div>
+                <!-- Drogo 1 WIDE -->
+                <img src="./images/wide/wide_d1.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">2 / 4</div>
+                <!-- Drogo 2 WIDE -->
+                <img src="./images/wide/wide_d2.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">3 / 4</div>
+                <!-- Khaleesi 1 WIDE -->
+                <img src="./images/wide/wide_k1.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">4 / 4</div>
+                <!-- Khaleesi 2 WIDE -->
+                <img src="./images/wide/wide_k4.jpg" style="width:100%">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+            
+            <div class="column">
+                <!-- Drogo 1 WIDE -->
+                <img class="demo cursor" src="./images/wide/wide_d1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Black & White Drogo">
+            </div>
+            <div class="column">
+                <!-- Drogo 2 WIDE -->
+                <img class="demo cursor" src="./images/wide/wide_d2.jpg" style="width:100%" onclick="currentSlide(2)" alt="American Apparel Drogo">
+            </div>
+            <div class="column">
+                <!-- Khaleesi 1 WIDE -->
+                <img class="demo cursor" src="./images/wide/wide_k1.jpg" style="width:100%" onclick="currentSlide(3)" alt="Khaleesi Girl">
+            </div>
+            <div class="column">
+                <!-- Khaleesi 2 WIDE -->
+                <img class="demo cursor" src="./images/wide/wide_k4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Khaleesi">
+            </div>
+        </div>
+    </div>
+    <!-- End LIGHTBOX -->
+    
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="heading-padding">
+                <h1 class="heading-padding">Contact Us</h1>
+                <div class="reservation">
+                    <h2>
+                        <span>These pups will send you over the moon.</span>
+                        <br/>Contact us today!
+                    </h2>
+                    <p class="rsvp-text">
+                        Please provide us with your contact information.
+                    </p>
+                    <div class="form-rsvp">
+                        <form action="" method="post">
+                            <input class="rsvp" type="text" value="" placeholder="First Name">
+                            <input class="rsvp" type="text" value="" placeholder="Last Name">
+                            <input class="rsvp" type="text" value="" placeholder="Email Addy">
+                            <input class="rsvp" type="text" value="" placeholder="Phone Number">
+                            <div class="form-spacer">
+                                <label class="terms">Terms and Conditions</label>
+                            </div>
+                            <div class="submit">
+                                <input type="submit" value="WOOF!">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End CONTACT -->
+
+    <!-- FOOTER -->
+    <div id="footer">
+        www.MyPuppiesAreCuterThanYours.com &nbsp;|&nbsp; &copy; 2024
+    </div>
+    <!-- End FOOTER -->
+    <script>
+        function openModal() {
+          document.getElementById("myModal").style.display = "block";
+        }
+        
+        function closeModal() {
+          document.getElementById("myModal").style.display = "none";
+        }
+        
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("demo");
+          var captionText = document.getElementById("caption");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+          captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+        </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- //// REMOVED code from the original file:
+PHOTO CONTAINER 1 // REMOVED // 
+<div class="photo-container">    
+<div class="photo">
+<img src="./images/thumb/thumbnail_aDogs1.jpg" alt="Drogo and Khaleesi">
+<div class="photo-overlay">
+<h3>Click to Enlarge</h3>
+<p>Drogo and Khaleesi are best buds!</p>
+</div>
+</div>
+</div>
+END PHOTO CONTAINER 1
+=====================================================
+PHOTO CONTAINER 4 // REMOVED //
+<div class="photo-container">
+<div class="photo">
+<img src="./images/thumb/thumbnail_d3.jpg" alt="Drogo begs">
+<div class="photo-overlay">
+<h3>Click to Enlarge</h3>
+<p>At the dinner table, you are sure to receive Drogo&apos;s puppydog eyes...</p>
+</div>
+</div>
+</div>
+END PHOTO CONTAINER 4
+=====================================================
+PHOTO CONTAINER 5 // REMOVED //
+<div class="photo-container">
+<div class="photo">
+<img src="./images/thumb/thumbnail_d5.jpg" alt="Little Prince">
+<div class="photo-overlay">
+<h3>Click to Enlarge</h3>
+<p>Such a little prince!</p>
+</div>
+</div>
+</div>
+END PHOTO CONTAINER 5
+=====================================================
+PHOTO CONTAINER 7 // REMOVED //
+<div class="photo-container">
+<div class="photo">
+<img src="./images/thumb/thumbnail_k2.jpg" alt="Dinnertime 'Leesi">
+<div class="photo-overlay">
+<h3>Click to Enlarge</h3>
+<p>Khaleesi isn't as much of a begger at the table but she does tend to stare.</p>
+</div>
+</div>
+</div>
+END PHOTO CONTAINER 7
+=====================================================
+PHOTO CONTAINER 9 // REMOVED //
+<div class="photo-container">
+<div class="photo">
+<img src="./images/thumb/thumbnail_k5.jpg" alt="Kha-messy">
+<div class="photo-overlay">
+<h3>Click to Enlarge</h3>
+<p>Khaleesi&apos;s humans needed to get her groomed.</p>
+</div>
+</div>
+</div>
+END PHOTO CONTAINER 9
+
+=====================================================
+GALLERY code (original, pared down to 4 images)
+    <section id="gallery">
+        <div class="container">
+            <h1>Gallery</h1>
+            <div class="flex-container">
+
+PHOTO CONTAINER 2
+                <div class="photo-container">
+                    <div class="photo">
+                        <img src="./images/thumb/thumbnail_d1.jpg" alt="Black & White Drogo">
+                        <div class="photo-overlay">
+                            <h3>Click to Enlarge</h3>
+                            <p>Drogo looks like a teddy bear!</p>
+                        </div>
+                    </div>
+                </div>
+END PHOTO CONTAINER 2
+
+PHOTO CONTAINER 3
+                <div class="photo-container">
+                    <div class="photo">
+                        <img src="./images/thumb/thumbnail_d2.jpg" alt="American Apparel Drogo">
+                        <div class="photo-overlay">
+                            <h3>Click to Enlarge</h3>
+                            <p>For his modelling portfolio.</p>
+                        </div>
+                    </div>
+                </div>
+END PHOTO CONTAINER 3
+
+PHOTO CONTAINER 6
+                <div class="photo-container">
+                    <div class="photo">
+                        <img src="./images/thumb/thumbnail_k1.jpg" alt="Khaleesi Girl">
+                        <div class="photo-overlay">
+                            <h3>Click to Enlarge</h3>
+                            <p>Khaleesi likes to tilt her head in wonderment.</p>
+                        </div>
+                    </div>
+                </div>
+END PHOTO CONTAINER 6
+
+PHOTO CONTAINER 8
+                <div class="photo-container">
+                    <div class="photo">
+                        <img src="./images/thumb/thumbnail_k4.jpg" alt="Khaleesi">
+                        <div class="photo-overlay">
+                            <h3>Click to Enlarge</h3>
+                            <p>Khaleesi always finds a corner of the room to make her own!</p>
+                        </div>
+                    </div>
+                </div>
+END PHOTO CONTAINER 8
+
+            </div>
+        </div>
+    </section>
+    End original site GALLERY code -->
