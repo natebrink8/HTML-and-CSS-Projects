@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <title>WHERE MY DOGS AT!</title>
+    <link rel="stylesheet" href="./css/one_page_website_v2.css">
+</head>
+
+<body>
+    <!-- Nav -->
+    <div class="wrap">
+        <div class="menu-container">
+            <ul class="menu">
+                <a href="#home"><li>HOME</li></a>
+                <a href="#gallery"><li>GALLERY</li></a>
+                <a href="#contact"><li>CONTACT</li></a>
+            </ul>
+        </div>
+    </div>
+    <!-- End Nav -->
+    <!-- HOME -->
+    <div id="home">
+        <div class="container">
+            <div class="text-center">
+                <span class="head-main">Meet The Pupperz!</span>
+            </div>
+        </div>
+    </div>
+    <!-- End HOME -->
+
+    <!-- LIGHTBOX -->
+    <h2 style="text-align:center">Lightbox</h2>
+    <div class="row">
+        <div class="column">
+            <!-- Drogo 1 -->
+            <img src="./images/thumb/thumbnail_d1.jpg" style="width:169px" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+            <!-- Drogo 2 -->
+            <img src="./images/thumb/thumbnail_d2.jpg" style="width:169px" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+            <!-- Khaleesi 1 -->
+            <img src="./images/thumb/thumbnail_k1.jpg" style="width:169px" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+            <!-- Khaleesi 2 -->
+            <img src="./images/thumb/thumbnail_k4.jpg" style="width:169px" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <div class="mySlides">
+                <div class="numbertext">1 / 4</div>
+                <!-- Drogo 1 WIDE -->
+                <img src="./images/wide/wide_d1.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">2 / 4</div>
+                <!-- Drogo 2 WIDE -->
+                <img src="./images/wide/wide_d2.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">3 / 4</div>
+                <!-- Khaleesi 1 WIDE -->
+                <img src="./images/wide/wide_k1.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">4 / 4</div>
+                <!-- Khaleesi 2 WIDE -->
+                <img src="./images/wide/wide_k4.jpg" style="width:100%">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+
+            <div class="column">
+                <!-- Drogo 1 WIDE -->
+                <img class="demo cursor" src="./images/wide/wide_d1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Black & White Drogo">
+            </div>
+            <div class="column">
+                <!-- Drogo 2 WIDE -->
+                <img class="demo cursor" src="./images/wide/wide_d2.jpg" style="width:100%" onclick="currentSlide(2)" alt="American Apparel Drogo">
+            </div>
+            <div class="column">
+                <!-- Khaleesi 1 WIDE -->
+                <img class="demo cursor" src="./images/wide/wide_k1.jpg" style="width:100%" onclick="currentSlide(3)" alt="Khaleesi Girl">
+            </div>
+            <div class="column">
+                <!-- Khaleesi 2 WIDE -->
+                <img class="demo cursor" src="./images/wide/wide_k4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Khaleesi">
+            </div>
+        </div>
+    </div>
+    <!-- End LIGHTBOX -->
+    
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="heading-padding">
+                <h1 class="heading-padding">Contact Us</h1>
+                <div class="reservation">
+                    <h2>
+                        <span>These pups will send you over the moon.</span>
+                        <br/>Contact us today!
+                    </h2>
+                    <p class="rsvp-text">
+                        Please provide us with your contact information.
+                    </p>
+                    <div class="form-rsvp">
+                        <form action="" method="post">
+                            <input class="rsvp" type="text" value="" placeholder="First Name">
+                            <input class="rsvp" type="text" value="" placeholder="Last Name">
+                            <input class="rsvp" type="text" value="" placeholder="Email Addy">
+                            <input class="rsvp" type="text" value="" placeholder="Phone Number">
+                            <div class="form-spacer">
+                                <label class="terms">Terms and Conditions</label>
+                            </div>
+                            <div class="submit">
+                                <input type="submit" value="WOOF!">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End CONTACT -->
+
+    <!-- FOOTER -->
+    <div id="footer">
+        www.MyPuppiesAreCuterThanYours.com &nbsp;|&nbsp; &copy; 2024
+    </div>
+    <!-- End FOOTER -->
+
+    <script src="js/one_page_website.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- //// REMOVED code from the original file:
+PHOTO CONTAINER 1 // REMOVED // 
+<div class="photo-container">    
+<div class="photo">
+<img src="./images/thumb/thumbnail_aDogs1.jpg" alt="Drogo and Khaleesi">
+<div class="photo-overlay">
+<h3>Click to Enlarge</h3>
+<p>Drogo and Khaleesi are best buds!</p>
+</div>
+</div>
+</div>
+END PHOTO CONTAINER 1
+=====================================================
+PHOTO CONTAINER 4 // REMOVED //
+<div class="photo-container">
+<div class="photo">
+<img src="./images/thumb/thumbnail_d3.jpg" alt="Drogo begs">
+<div class="photo-overlay">
+<h3>Click to Enlarge</h3>
+<p>At the dinner table, you are sure to receive Drogo&apos;s puppydog eyes...</p>
+</div>
+</div>
+</div>
+END PHOTO CONTAINER 4
+=====================================================
+PHOTO CONTAINER 5 // REMOVED //
+<div class="photo-container">
+<div class="photo">
+<img src="./images/thumb/thumbnail_d5.jpg" alt="Little Prince">
+<div class="photo-overlay">
+<h3>Click to Enlarge</h3>
+<p>Such a little prince!</p>
+</div>
+</div>
+</div>
+END PHOTO CONTAINER 5
+=====================================================
+PHOTO CONTAINER 7 // REMOVED //
+<div class="photo-container">
+<div class="photo">
+<img src="./images/thumb/thumbnail_k2.jpg" alt="Dinnertime 'Leesi">
+<div class="photo-overlay">
+<h3>Click to Enlarge</h3>
+<p>Khaleesi isn't as much of a begger at the table but she does tend to stare.</p>
+</div>
+</div>
+</div>
+END PHOTO CONTAINER 7
+=====================================================
+PHOTO CONTAINER 9 // REMOVED //
+<div class="photo-container">
+<div class="photo">
+<img src="./images/thumb/thumbnail_k5.jpg" alt="Kha-messy">
+<div class="photo-overlay">
+<h3>Click to Enlarge</h3>
+<p>Khaleesi&apos;s humans needed to get her groomed.</p>
+</div>
+</div>
+</div>
+END PHOTO CONTAINER 9 -->
+
+
+<!-- GALLERY (original, pared down to 4 images)
+    <section id="gallery">
+        <div class="container">
+            <h1>Gallery</h1>
+            <div class="flex-container">
+PHOTO CONTAINER 2
+                <div class="photo-container">
+                    <div class="photo">
+                        <img src="./images/thumb/thumbnail_d1.jpg" alt="Black & White Drogo">
+                        <div class="photo-overlay">
+                            <h3>Click to Enlarge</h3>
+                            <p>Drogo looks like a teddy bear!</p>
+                        </div>
+                    </div>
+                </div>
+END PHOTO CONTAINER 2
+PHOTO CONTAINER 3
+                <div class="photo-container">
+                    <div class="photo">
+                        <img src="./images/thumb/thumbnail_d2.jpg" alt="American Apparel Drogo">
+                        <div class="photo-overlay">
+                            <h3>Click to Enlarge</h3>
+                            <p>For his modelling portfolio.</p>
+                        </div>
+                    </div>
+                </div>
+END PHOTO CONTAINER 3
+PHOTO CONTAINER 6 
+                <div class="photo-container">
+                    <div class="photo">
+                        <img src="./images/thumb/thumbnail_k1.jpg" alt="Khaleesi Girl">
+                        <div class="photo-overlay">
+                            <h3>Click to Enlarge</h3>
+                            <p>Khaleesi likes to tilt her head in wonderment.</p>
+                        </div>
+                    </div>
+                </div>
+END PHOTO CONTAINER 6
+PHOTO CONTAINER 8
+                <div class="photo-container">
+                    <div class="photo">
+                        <img src="./images/thumb/thumbnail_k4.jpg" alt="Khaleesi">
+                        <div class="photo-overlay">
+                            <h3>Click to Enlarge</h3>
+                            <p>Khaleesi always finds a corner of the room to make her own!</p>
+                        </div>
+                    </div>
+                </div>
+END PHOTO CONTAINER 8
+            </div>
+        </div>
+    </section>
+End GALLERY 
+
+=====================================
+Commented CODE above was from the original one page website gallery.
+->

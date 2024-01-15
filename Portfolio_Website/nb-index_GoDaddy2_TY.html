@@ -7,7 +7,6 @@
         <title>Nate Brink</title>
         <link rel="stylesheet" type="text/css" href="nb-portfolio.css">
     </head>
-
     <!--Body-->
     <body class="Background">
         
@@ -18,11 +17,9 @@
             <a href="#GitHub">GitHub</a>
             <a href="#Contact">Contact</a>
         </div>
-
         <!--Breaks inserted to add space between navbar and the first heading-->
         <br>
         <br>
-
         <!--Background video-->
         <div id="Home">
             <video autoplay muted loop id="Typing_Video">
@@ -100,7 +97,7 @@
             <div class="Column_1 Column_tall">
                 <h1>Contact</h1>
                 <!--This specifies where and how to send the form data; we are leaving it blank-->
-                <form action="https://formspree.io/f/xdorqaqe" method="POST">
+                <form action="https://formspree.io/f/xdorqaqe" method="POST" id="form1">
                     <label>Name:</label>
                         <input type="text" placeholder="Please enter your name.">
                     <label>Email:</label>
@@ -111,6 +108,8 @@
                 </form>
             </div>
         </div>
+        <!-- functions but isn't in the form -->
+        <button onclick="redirect()">Redirect</button>
 
         <!--Footer section-->
         <footer>
@@ -119,5 +118,7 @@
                 <br>
             </p>
         </footer>
+        <script src="index.js"></script>
+        <script src="GoDaddy_Redirect.js"></script>
     </body>
 </html>
